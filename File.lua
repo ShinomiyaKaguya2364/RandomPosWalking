@@ -83,7 +83,7 @@ local function hasReachedDestination()
 end
 
 -- Continuously make the LocalPlayer jump, walk to random positions, or do nothing
-while true do
+task.spawn(pcall, function()while true do
     if not isMoving and math.random() < jumpProbability then
         makePlayerJump() -- Randomly jump
     elseif not isMoving then
@@ -107,3 +107,4 @@ while true do
     end
     wait(0.1) -- Adjust this to control the script's update rate
 end
+    end)
